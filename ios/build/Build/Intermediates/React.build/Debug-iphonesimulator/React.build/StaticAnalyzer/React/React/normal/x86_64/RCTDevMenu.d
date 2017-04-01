@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Modules/RCTDevMenu.mm \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Modules/RCTDevMenu.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JavaScriptCore.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Modules/JSCSamplingProfiler.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTKeyCommands.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/FurruPi/Documents/MDPA/ReactNative/class1/node_modules/react-native/React/Base/RCTWebSocketObserverProtocol.h
