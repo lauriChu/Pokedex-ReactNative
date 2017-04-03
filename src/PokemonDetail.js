@@ -35,8 +35,7 @@ export default class PokemonDetail extends Component {
   async componentWillMount() {
     const pokemonId = this.props.route.pokemonId;
     if (pokemonId != null){
-      const components = pokemonId.split('/');
-      const uri = 'https://pokeapi.co/api/v2/pokemon/' + components[3];
+      const uri = 'https://pokeapi.co/api/v2/pokemon/' + pokemonId;
 
       try {
         const response = await fetch(uri);

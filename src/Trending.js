@@ -15,9 +15,14 @@ import {
   TouchableOpacity,
   Dimensions,
   ListView,
+  AsyncStorage,
   ActivityIndicator,
   View
 } from 'react-native';
+import {
+  getPokemonList,
+  getNumberOfPokemon,
+} from './utils.js'
 import CustomHeader from './Header.js'
 import BasicListItem from './BasicListItem.js'
 import BottomBar from './BottomBar.js'
@@ -34,17 +39,42 @@ export default class Trending extends Component {
   }
 
   async componentWillMount() {
-    const uri = 'https://pokeapi.co/api/v1/pokedex/1/';
+    // Fetch from BBDD
+
     try {
-      const response = await fetch(uri);
-      const jsonData = await response.json();
-      console.log(jsonData);
-      const list = new ListView.DataSource({rowHasChanged: (p1, p2) => p1 !== p2});
-      this.setState({pokemons: list.cloneWithRows(jsonData.pokemon),  loading: false })
-    } catch(e) {
-      console.log(e);
+        const pokemonList = (await AsyncStorage.getItem('class1':PK_POKEMON_LIST)) || [];
+        console.log(pokemonList);
+        const list = this.state.pokemons;
+        this.setState({pokemons: list.cloneWithRows(pokemonList),  loading: false })
+    } catch (e) {
+        console.log("Error fetching data", e);
+    }
+
+    if (pokemonList.lenght === 0){
+      //Fetch from internet
+      const uri = 'https://pokeapi.co/api/v1/pokedex/1/';
+
+      try {
+        const response = await fetch(uri);
+        const jsonData = await response.json();
+        const list = new ListView.DataSource({rowHasChanged: (p1, p2) => p1 !== p2});
+        pokemonList = getPokemonList(jsonData.pokemon);
+        this.setState({pokemons: list.cloneWithRows(pokemonList),  loading: false })
+
+      } catch(e) {
+        console.log(e);
+      }
     }
   }
+
+  async componentWillUnmount() {
+    try {
+      const pokemonList = this.state.pokemons;
+    } catch (e) {
+      console.log("Error saving data");
+    }
+  }
+
   render() {
     const { pokemons, loading, error } = this.state;
 
@@ -67,8 +97,8 @@ export default class Trending extends Component {
       <ListView
         dataSource={this.state.pokemons}
         renderRow={(rowPokemon) =>
-          <TouchableOpacity onPress={() => this.props.navigator.push({name: 'pokemonDetail', pokemonId: rowPokemon.resource_uri})}>
-            <BasicListItem key={rowPokemon.resource_uri} title={rowPokemon.name} subtitle={rowPokemon.resource_uri}/>
+          <TouchableOpacity onPress={() => this.props.navigator.push({name: 'pokemonDetail', pokemonId: rowPokemon.id})}>
+            <BasicListItem key={rowPokemon.id} title={rowPokemon.name} subtitle={rowPokemon.id}/>
           </TouchableOpacity>
         }
         style={styles.content}

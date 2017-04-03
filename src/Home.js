@@ -32,6 +32,8 @@ var ROUTES = {
   settings: Settings,
 }
 
+var PK_POKEMON_LIST = "pokemonListPk";
+
 export default class Home extends Component {
 
   constructor(props){
