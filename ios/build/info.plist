@@ -3,13 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>LastAccessedDate</key>
-	<date>2017-03-27T18:05:59Z</date>
+	<date>2017-04-03T17:27:38Z</date>
 	<key>WorkspacePath</key>
-	<string>/Users/FurruPi/Documents/MDPA/ReactNative/class1/ios/class1.xcodeproj</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>Allow Arbitrary Loads</key>
-		<true/>
-	</dict>
+	<string>/Users/FurruPi/Documents/MDPA/ReactNative/Pokedex-ReactNative/ios/class1.xcodeproj</string>
 </dict>
 </plist>
