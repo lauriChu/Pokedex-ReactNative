@@ -13,6 +13,7 @@ import {
   TabBarIOS,
   TouchableHighlight,
   TouchableOpacity,
+  AsyncStorage,
   Dimensions,
   ListView,
   ActivityIndicator,
@@ -37,5 +38,4 @@ export  function getPokemonList(pokemonJsonList) {
   });
   return pokemonsList;
 };
-
 export const pokemnoCount = 4;

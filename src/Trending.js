@@ -38,38 +38,37 @@ export default class Trending extends Component {
     this.state = { pokemons: list, loading: true }
   }
 
-  async componentWillMount() {
-    // Fetch from BBDD
-
+  async fetchFromBBDD() {
     try {
-        const pokemonList = (await AsyncStorage.getItem('class1':PK_POKEMON_LIST)) || [];
-        console.log(pokemonList);
-        const list = this.state.pokemons;
-        this.setState({pokemons: list.cloneWithRows(pokemonList),  loading: false })
+        return await  AsyncStorage.getItem('class1:' + 'PK_POKEMON_LIST');
     } catch (e) {
         console.log("Error fetching data", e);
     }
+  }
 
-    if (pokemonList.lenght === 0){
-      //Fetch from internet
-      const uri = 'https://pokeapi.co/api/v1/pokedex/1/';
-
-      try {
-        const response = await fetch(uri);
-        const jsonData = await response.json();
-        const list = new ListView.DataSource({rowHasChanged: (p1, p2) => p1 !== p2});
-        pokemonList = getPokemonList(jsonData.pokemon);
-        this.setState({pokemons: list.cloneWithRows(pokemonList),  loading: false })
-
-      } catch(e) {
-        console.log(e);
-      }
+  async fetchFromInternet() {
+    const uri = 'https://pokeapi.co/api/v1/pokedex/1/';
+    try {
+      const response = await fetch(uri);
+      const jsonData = await response.json();
+      return getPokemonList(jsonData.pokemon);;
+    } catch(e) {
+      console.log(e);
     }
+  }
+
+  async componentWillMount() {
+    // Fetch from BBDD
+    const pokemonList =
+      await this.fetchFromBBDD() ||
+      await this.fetchFromInternet() ||
+      []
+    this.setState({pokemons: this.state.pokemons.cloneWithRows(pokemonList),  loading: false })
   }
 
   async componentWillUnmount() {
     try {
-      const pokemonList = this.state.pokemons;
+      await AsyncStorage.setItem('class1:' + PK_POKEMON_LIST, this.state.pokemons);
     } catch (e) {
       console.log("Error saving data");
     }
